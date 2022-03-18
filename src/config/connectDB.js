@@ -1,10 +1,14 @@
-
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
+
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('d961gdar9j9u3u', 'uurmdktbfyluav',
- "24ef65561c7f6671b50e9f89ab1b4df0f2faf80880a815a5c6e75faa042ec91b", {
-    host: 'ec2-176-34-105-15.eu-west-1.compute.amazonaws.com',
+const sequelize = new Sequelize(
+  process.env.DB_DATABASE_NAME, 
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD, 
+ {
+    host: process.env.DB_HOST,
     dialect: 'postgres',
     logging: false,
     dialectOptions: {
