@@ -19,7 +19,7 @@ let createUser = async(data) => {
                 roleId: data.roleId
             })
 
-            resolve('ok created a new user')
+            resolve('New user is registered!!!!')
 
         }catch(error) {
             reject(error);
