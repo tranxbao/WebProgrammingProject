@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "bookingcare",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
+    "username": "uurmdktbfyluav",
+    "password": "24ef65561c7f6671b50e9f89ab1b4df0f2faf80880a815a5c6e75faa042ec91b",
+    "database": "d961gdar9j9u3u",
+    "host": "ec2-176-34-105-15.eu-west-1.compute.amazonaws.com",
+    "dialect": "postgres",
     "logging": false
   },
   "test": {
