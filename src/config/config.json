@@ -5,6 +5,11 @@
     "database": "d961gdar9j9u3u",
     "host": "ec2-176-34-105-15.eu-west-1.compute.amazonaws.com",
     "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+      },
     "logging": false
   },
   "test": {
@@ -21,4 +26,5 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
+}
 }
