@@ -9,9 +9,11 @@ require("dotenv").config();
 
 
 let app = express();
+//static files
+app.use(express.static("public"));
+app.use('/css', express.static(__dirname + 'public/css'));
 
 //view engine
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,4 +28,5 @@ let port = process.env.PORT || 6789; // if Port is undefined, use port 6789
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
 
