@@ -1,13 +1,14 @@
-import express from 'express';
-let app = express();
-let path = require('path');
+import express from "express";
+import expressEjsExtend from "express-ejs-extend";
 
-//config view engine for nodejs app.
-
-let configViewEngine = (app) => {
-    app.use(express.static(path.join(__dirname, '../public')));
-    app.set('view engine', 'ejs');
-    app.set('views', path.join(__dirname, '../views'));
+/**
+ * Config view engine for app
+ */
+let configViewEngine = (app)=> {
+    app.use(express.static("./src/public"));
+    app.engine("ejs", expressEjsExtend);
+    app.set("view engine", "ejs");
+    app.set("views","./src/views");
 };
 
 module.exports = configViewEngine;

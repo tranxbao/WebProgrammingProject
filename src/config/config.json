@@ -1,30 +1,30 @@
 {
-  "development": {
-    "username": "mjgaisnjvtarss",
-    "password": "6302aff0b060d46effc0c743f28e04e8676908bb9c35a0fb580469198fe6ef9f",
-    "database": "d4r58njai54ha3",
-    "host": "ec2-52-209-185-5.eu-west-1.compute.amazonaws.com",
-    "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": {
-          "require": true,
-          "rejectUnauthorized": false
-      },
-    "logging": false
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
+    "development": {
+        "username": "root",
+        "password": null,
+        "database": "doctorcare",
+        "host": "localhost",
+        "dialect": "mysql",
+        "operatorsAliases": 0,
+        "dialectOptions": {
+            "dateStrings": true,
+            "typeCast": true,
+            "timezone": "+02:00"
+        },
+        "timezone": "+02:00"
+    },
+    "test": {
+        "dialect": "mysql",
+        "operatorsAliases": 0
+    },
+    "production": {
+        "dialect": "mysql",
+        "operatorsAliases": 0,
+        "dialectOptions": {
+            "dateStrings": true,
+            "typeCast": true,
+            "timezone": "+07:00"
+        },
+        "timezone": "+07:00"
+    }
 }

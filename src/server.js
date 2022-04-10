@@ -1,32 +1,33 @@
+require('dotenv').config();
 import express from "express";
+import configViewEngine from "./config/viewEngine";
+import initRoutes from "./routes/web";
 import bodyParser from "body-parser";
-import viewEngine from "./config/viewEngine";
-import indexRoute from "./routes/index";
-import connectDB from "./config/connectDB";
-require("dotenv").config();
-
-
+import cookieParser from 'cookie-parser';
+import flash from 'connect-flash';
+import methodOverride from 'method-override';
+import passPort from "passport";
+import session from "./config/session";
 
 
 let app = express();
-//static files
-app.use(express.static("public"));
-app.use('/css', express.static(__dirname + 'public/css'));
+app.use(methodOverride('_method'));
+app.use(cookieParser('secret'));
 
-//view engine
+app.use(flash());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
-viewEngine(app);
-indexRoute(app);
+//config session
+session.configSession(app);
 
-connectDB();
+configViewEngine(app);
 
+// config Passportjs
+app.use(passPort.initialize());
+app.use(passPort.session());
 
-let port = process.env.PORT || 6789; // if Port is undefined, use port 6789
+initRoutes(app);
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
-
-
+let port = process.env.PORT;
+app.listen(port || 8080, () => console.log(`Doctors care app is running on port ${port}!`));
