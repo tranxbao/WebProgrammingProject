@@ -30,4 +30,4 @@ app.use(passPort.session());
 initRoutes(app);
 
 let port = process.env.PORT;
-app.listen(port || 8080, () => console.log(`Doctors care app is running on port ${port}!`));
+app.listen(port || 8080, () => console.log(`app is running on port ${port}!`));
