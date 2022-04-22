@@ -9,6 +9,9 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "16.14.2"
+  },
   "dependencies": {
     "@babel/cli": "^7.17.6",
     "@types/jquery": "^3.5.14",
