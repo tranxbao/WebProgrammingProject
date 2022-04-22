@@ -26,19 +26,19 @@ passport.use(new LocalStrategy({
         try {
             await userService.findUserByEmail(email).then(async (user) => {
                 if (!user) {
-                    return done(null, false, req.flash("error", "Email không tồn tại"));
+                    return done(null, false, req.flash("error", "Email not exist"));
                 }
                 if (user && user.isActive === 1) {
                     let match = await userService.comparePassword(password, user);
                     if (match) {
                         return done(null, user, null)
                     } else {
-                        return done(null, false, req.flash("error", "Mật khẩu không chính xác")
+                        return done(null, false, req.flash("error", "Password incorrect")
                         )
                     }
                 }
                 if (user && user.isActive === 0) {
-                    return done(null, false, req.flash("error", "Tài khoản chưa được kích hoạt"));
+                    return done(null, false, req.flash("error", "Your account is not active"));
                 }
             });
         } catch (err) {
