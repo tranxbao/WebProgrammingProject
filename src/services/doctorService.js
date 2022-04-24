@@ -393,7 +393,7 @@ let sendFormsForPatient = (id, files) => {
             });
             let nameZip = `${Date.now()}-patientId-${id}.zip`;
             let pathZip = `${PATH_ZIP}/${nameZip}`;
-            fs.writeFileSync(pathZip, new Buffer(mz.zip()));
+            fs.writeFileSync(pathZip, Buffer.from(mz.zip()));
             let filename = `Information-invoice-${patient.dateBooking}.zip`;
             let data = { doctor: doctor.name };
             await mailer.sendEmailWithAttachment(patient.email, transMailRemedy.subject, transMailRemedy.template(data), filename, pathZip);
